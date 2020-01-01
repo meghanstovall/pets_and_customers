@@ -15,6 +15,10 @@ class PetTest < Minitest::Test
   def test_it_has_attributes
     assert_equal "Samson", @samson.name
     assert_equal :dog, @samson.type
+    refute @samson.fed?
+    refute @samson.hair_cut
+    refute @samson.washed
+    refute @samson.nails_trimmed
   end
 
   def test_can_be_fed

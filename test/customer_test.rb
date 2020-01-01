@@ -31,9 +31,16 @@ class CustomerTest < Minitest::Test
   def test_outstanding_balance
     assert_equal 0, @joel.outstanding_balance
 
-    @joel.charge(15)
-    @joel.charge(7)
+    @joel.adopt(@samson)
+    @joel.adopt(@lucy)
+    @joel.charge(@samson, "hair cut")
 
-    assert_equal 22, @joel.outstanding_balance
+    assert_equal 40, @joel.outstanding_balance
+    assert @samson.hair_cut
+
+    @joel.charge(@samson, "bath")
+    @joel.charge(@lucy, "nail trim")
+
+    assert_equal 115, @joel.outstanding_balance
   end
 end

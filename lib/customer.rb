@@ -13,7 +13,16 @@ class Customer
     @pets << pet
   end
 
-  def charge(amount)
-    @outstanding_balance += amount
+  def charge(pet, what_for)
+    if what_for == "hair cut"
+      @outstanding_balance += 40
+      pet.get_hair_cut
+    elsif what_for == "bath"
+      @outstanding_balance += 60
+      pet.get_bath
+    elsif what_for == "nail trim"
+      @outstanding_balance += 15
+      pet.get_nails_trimmed
+    end
   end
 end
