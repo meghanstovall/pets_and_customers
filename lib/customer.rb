@@ -1,6 +1,7 @@
 class Customer
 
-  attr_reader :name, :id, :pets, :outstanding_balance
+  attr_reader :name, :id, :pets
+  attr_accessor :outstanding_balance
 
   def initialize(name, id)
     @name = name
